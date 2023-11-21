@@ -21,7 +21,36 @@ public class DietPlan implements Serializable {
     }
 
     // Getters and setters...
-
+    public int getPlanId() {
+        return planId;
+    }
+    public void setPlanId(int planId) {
+        this.planId = planId;
+    }
+    public Patient getPatient() {
+        return patient;
+    }
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+    public Dietitian getDietitian() {
+        return dietitian;
+    }
+    public void setDietitian(Dietitian dietitian) {
+        this.dietitian = dietitian;
+    }
+    public int getDailyCalories() {
+        return dailyCalories;
+    }
+    public void setDailyCalories(int dailyCalories) {
+        this.dailyCalories = dailyCalories;
+    }
+    public String getMacronutrientDistribution() {
+        return macronutrientDistribution;
+    }
+    public void setMacronutrientDistribution(String macronutrientDistribution) {
+        this.macronutrientDistribution = macronutrientDistribution;
+    }
     @Override
     public String toString() {
         return "DietPlan{" +

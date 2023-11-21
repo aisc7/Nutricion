@@ -15,7 +15,27 @@ public class Meal implements Serializable {
     }
 
     // Getters and setters...
-
+    public String getName() {
+        return name;
+    }
+    public void setName(String mealName) {
+        this.name = mealName;
+    }
+    public String getMacronutrients() {
+        return macronutrients;
+    }
+    public void setMacronutrients(String mealMacronutrients) {
+        this.macronutrients = mealMacronutrients;
+    }
+    public int getCalories() {
+        return calories;
+    }
+    public void setCalories(int mealCalories) {
+        this.calories = mealCalories;
+    }
+    public String getTimeOfDay() {
+        return timeOfDay;
+    }
     @Override
     public String toString() {
         return "Meal{" +
