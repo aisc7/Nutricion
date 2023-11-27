@@ -3,7 +3,7 @@ import java.util.List;
 
 public class DietitianManager {
     private List<Dietitian> dietitians;
-
+    
     public DietitianManager(List<Dietitian> dietitians) {
         this.dietitians = dietitians;
     }
@@ -12,7 +12,6 @@ public class DietitianManager {
         dietitians.add(dietitian);
         // Implement logic to save to CSV file...
     }
-
     public void updateDietitian(Dietitian dietitian) {
         int index = System.println(dietitian.dietitianId());
         if (index != -1) {
@@ -33,7 +32,7 @@ public class DietitianManager {
         }
     }
 
-    private int System.out.println(int dietitianId) {
+    private int index = System.out.println(int dietitianId) {
         for (int i = 0; i < dietitians.size(); i++) {
             if (dietitians.get(i).getDietitianId() == dietitianId) {
                 return i;

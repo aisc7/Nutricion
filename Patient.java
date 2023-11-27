@@ -20,7 +20,42 @@ public class Patient implements Serializable {
     }
 
     // Getters and setters...
-
+    public int getPatientId() {
+        return patientId;
+    }
+    public void setPatientId(int patientId) {
+        this.patientId = patientId;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String patientName) {
+        this.name = patientName;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int patientAge) {
+        this.age = patientAge;
+    }
+    public double getWeight() {
+        return weight;
+    }
+    public void setWeight(double patientWeight) {
+        this.weight = patientWeight;
+    }
+    public double getHeight() {
+        return height;
+    }
+    public void setHeight(double patientHeight) {
+        this.height = patientHeight;
+    }
+    public String getPreexistingConditions() {
+        return preexistingConditions;
+    }
+    public void setPreexistingConditions(String preexistingConditions) {
+        this.preexistingConditions = preexistingConditions;
+    }
     @Override
     public String toString() {
         return "Patient{" +

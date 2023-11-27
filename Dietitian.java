@@ -14,6 +14,24 @@ public class Dietitian implements Serializable {
     }
 
     // Getters and setters...
+    public int getDietitianId() {
+        return dietitianId;
+    }
+    public void setDietitianId(int dietitianId) {
+        this.dietitianId = dietitianId;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String dietitianName) {
+        this.name = dietitianName;
+    }
+    public String getSpecialty() {
+        return specialty;
+    }
+    public void setSpecialty(String dietitianSpecialty) {
+        this.specialty = dietitianSpecialty;
+    }
 
     @Override
     public String toString() {
