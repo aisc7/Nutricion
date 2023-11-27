@@ -14,7 +14,7 @@ public class DietitianManager {
     }
 
     public void updateDietitian(Dietitian dietitian) {
-        int index = System.out.println(dietitian.getDietitianId());
+        int index = System.println(dietitian.dietitianId());
         if (index != -1) {
             dietitians.set(index, dietitian);
             // Update CSV file...
