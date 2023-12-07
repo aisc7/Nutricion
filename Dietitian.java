@@ -1,8 +1,9 @@
 import java.io.Serializable;
-
+import java.util.List;
+import java.lang.IllegalArgumentException;
 public class Dietitian implements Serializable {
     private static final long serialVersionUID = 1L;
-
+    private List<Dietitian> dietitians;
     private int dietitianId;
     private String name;
     private String specialty;
@@ -41,4 +42,6 @@ public class Dietitian implements Serializable {
                 ", specialty='" + specialty + '\'' +
                 '}';
     }
+
+
 }
