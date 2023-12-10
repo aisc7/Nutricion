@@ -3,20 +3,36 @@ import java.io.Serializable;
 public class Meal implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    private int mealId;
     private String name;
+    private int patientId;
     private String macronutrients;
-    private int calories;
+    private Double calories;
     private String timeOfDay;
- public Meal(String name, String macronutrients, int calories, String timeOfDay) {
+    public Meal(int mealId ,  int patientId, String name, String macronutrients, double calories, String timeOfDay) {
         this.name = name;
         this.macronutrients = macronutrients;
         this.calories = calories;
         this.timeOfDay = timeOfDay;
     }
-
+    
     // Getters and setters...
     public String getName() {
         return name;
+    }
+
+    public int getMealId() {
+        return mealId;
+    }
+    public void setMealId(int mealId) {
+        this.mealId = mealId;
+    }
+    
+    public int getPatientId() {
+        return patientId;
+    }
+    public void setPatientId(int patientId) {
+        this.patientId = patientId;
     }
     public void setName(String mealName) {
         this.name = mealName;
@@ -27,17 +43,19 @@ public class Meal implements Serializable {
     public void setMacronutrients(String mealMacronutrients) {
         this.macronutrients = mealMacronutrients;
     }
-    public int getCalories() {
+    public Double getCalories() {
         return calories;
     }
-    public void setCalories(int mealCalories) {
+    public void setCalories(Double mealCalories) {
         this.calories = mealCalories;
     }
     public String getTimeOfDay() {
         return timeOfDay;
     }
-    @Override
-    public String toString() {
+    public void setTimeOfDay(String mealTimeOfDay) {
+        this.timeOfDay = mealTimeOfDay;
+    }
+    public String toCsvString() {
         return "Meal{" +
                 "name='" + name + '\'' +
                 ", macronutrients='" + macronutrients + '\'' +

@@ -1,30 +1,34 @@
 import javax.swing.JOptionPane;
+
 public class PatientView {
-    public void printPatientdetails(Patient patient){
-        String message ="PATIENT DETAILS\n\n";
-        message += "ID de paciente : "+patient.getPatientId()+"\n";
-        message += "Nombre de paciente : "+patient.getName()+"\n";
-        message += "Edad : "+patient.getAge()+"\n";
-        message +="Peso : "+patient.getWeight()+"\n";
-        message +="Altura : "+patient.getHeight()+"\n";
-        message +="Condiciones preexistentes : "+patient.getPreexistingConditions()+"\n";
+    public void printPatientDetails(Patient patient) {
+        String message = "PATIENT DETAILS\n\n";
+        message += "Patient ID: " + patient.getPatientId() + "\n";
+        message += "Patient Name: " + patient.getName() + "\n";
+        message += "Age: " + patient.getAge() + "\n";
+        message += "Weight: " + patient.getWeight() + "\n";
+        message += "Height: " + patient.getHeight() + "\n";
+        message += "Preexisting Conditions: " + patient.getPreexistingConditions() + "\n";
         JOptionPane.showMessageDialog(null, message);
     }
-    public String getInput(String message){
-        return JOptionPane.showInputDialog(null,message);
+
+    public String getInput(String message) {
+        return JOptionPane.showInputDialog(null, message);
     }
-    public void showMessage(String message){
-        JOptionPane.showInputDialog(null,message);
+
+    public void showMessage(String message) {
+        JOptionPane.showMessageDialog(null, message);
     }
-    public String displayMenu(){
-        String message="";
-        message +="1. Registrar paciente\n";
-        message +="2. Consultar paciente\n";
-        message +="3. actualizar paciente\n";
-        message +="4. Eliminar paciente\n";
-        message +="5. Salir\n";
-        message +="Selecciona una opcion: ";
-        return JOptionPane.showInputDialog(null,message);
+
+    public String displayMenu() {
+        String message = "";
+        message += "1. Register Patient\n";
+        message += "2. View Patient\n";
+        message += "3. Update Patient\n";
+        message += "4. Delete Patient\n";
+        message += "5. Exit\n";
+        message += "Select an option: ";
+        return JOptionPane.showInputDialog(null, message);
     }
-        
 }
+

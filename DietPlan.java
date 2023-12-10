@@ -5,17 +5,17 @@ public class DietPlan implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private int planId;
-    private Patient patient;
-    private Dietitian dietitian;
-    private int dailyCalories;
+    private Double PatientID;
+    private int dietitianID;
+    private double dailyCalories;
     private String macronutrientDistribution;
     private String specificRecommendations;
 
-    public DietPlan(int planId, Patient patient, Dietitian dietitian, int dailyCalories,
+    public DietPlan(int planId, Double PatientID, int dietitianID, double dailyCalories,
                     String macronutrientDistribution, String specificRecommendations) {
         this.planId = planId;
-        this.patient = patient;
-        this.dietitian = dietitian;
+        this.PatientID = PatientID;
+        this.dietitianID = dietitianID;
         this.dailyCalories = dailyCalories;
         this.macronutrientDistribution = macronutrientDistribution;
         this.specificRecommendations = specificRecommendations;
@@ -28,22 +28,22 @@ public class DietPlan implements Serializable {
     public void setPlanId(int planId) {
         this.planId = planId;
     }
-    public Patient getPatient() {
-        return patient;
+    public Double getPatientID() {
+        return PatientID;
     }
-    public void setPatient(Patient patient) {
-        this.patient = patient;
+    public void setPatient(Double PatientID) {
+        this.PatientID = PatientID;
     }
-    public Dietitian getDietitian() {
-        return dietitian;
+    public int getDietitian() {
+        return dietitianID;
     }
-    public void setDietitian(Dietitian dietitian) {
-        this.dietitian = dietitian;
+    public void setDietitian(int dietitian) {
+        this.dietitianID = dietitian;
     }
-    public int getDailyCalories() {
+    public double getDailyCalories() {
         return dailyCalories;
     }
-    public void setDailyCalories(int dailyCalories) {
+    public void setDailyCalories(double dailyCalories) {
         this.dailyCalories = dailyCalories;
     }
     public String getMacronutrientDistribution() {
@@ -56,11 +56,14 @@ public class DietPlan implements Serializable {
     public String toString() {
         return "DietPlan{" +
                 "planId=" + planId +
-                ", patient=" + patient +
-                ", dietitian=" + dietitian +
+                ", PatientID=" + PatientID +
+                ", dietitian=" + dietitianID +
                 ", dailyCalories=" + dailyCalories +
                 ", macronutrientDistribution='" + macronutrientDistribution + '\'' +
                 ", specificRecommendations='" + specificRecommendations + '\'' +
                 '}';
+    }
+    public int getDietitianId() {
+        return dietitianID;
     }
 }
