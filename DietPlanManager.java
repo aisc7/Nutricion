@@ -1,7 +1,7 @@
 import java.util.List;
 public class DietPlanManager {
     private List<DietPlan> dietPlans;
-
+    private CsvFileManager csvFileManager;
     public DietPlanManager(List<DietPlan> dietPlans) {
         this.dietPlans = dietPlans;
     }

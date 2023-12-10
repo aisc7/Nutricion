@@ -26,5 +26,5 @@ public class PatientView {
         message +="Selecciona una opcion: ";
         return JOptionPane.showInputDialog(null,message);
     }
-    
+        
 }

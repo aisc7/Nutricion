@@ -43,7 +43,7 @@ public class PatientManager {
         }
     }
 
-    private int findPatientIndex(int patientId) {
+    public int findPatientIndex(int patientId) {
         for (int i = 0; i < patients.size(); i++) {
             if (patients.get(i).getPatientId() == patientId) {
                 return i;
