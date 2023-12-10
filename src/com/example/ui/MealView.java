@@ -1,3 +1,4 @@
+package src.com.example.ui;
 import javax.swing.*;
 
 public class MealView {

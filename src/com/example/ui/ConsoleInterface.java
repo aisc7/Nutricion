@@ -1,3 +1,5 @@
+                package src.com.example.ui; 
+                import src.com.example.model.*;
                 import javax.swing.JOptionPane;
 
         public class ConsoleInterface {

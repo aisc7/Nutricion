@@ -1,4 +1,7 @@
+package src.com.example.ui;
+import src.com.example.model.Patient;
 import javax.swing.JOptionPane;
+
 
 public class PatientView {
     public void printPatientDetails(Patient patient) {

@@ -1,4 +1,4 @@
-
+package src.com.example.model; 
 import java.io.Serializable;
 
 public class DietPlan implements Serializable {
