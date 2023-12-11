@@ -28,7 +28,7 @@ public class DietPlanManager {
 
     private void saveDietPlansToFile() {
         try {
-            csvFileManager.saveDietPlans(dietPlans);
+            csvFileManager.writeDietPlans(dietPlans);
         } catch (Exception e) {
             e.printStackTrace();
         }

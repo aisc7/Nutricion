@@ -29,7 +29,7 @@ public class MealManager {
 
     private void saveMealsToFile() {
         try {
-            csvFileManager.saveMeals(meals);
+            csvFileManager.writeMeals(meals);
         } catch (Exception e) {
             e.printStackTrace();
         }

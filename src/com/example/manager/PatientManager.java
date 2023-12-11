@@ -55,7 +55,7 @@ public class PatientManager {
 
     private void savePatientsToFile() {
         try {
-            csvFileManager.savePatients(patients);
+            csvFileManager.writePatients(patients);
         } catch (Exception e) {
             e.printStackTrace();
         }

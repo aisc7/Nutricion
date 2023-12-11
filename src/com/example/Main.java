@@ -1,11 +1,10 @@
-package src.com.example;
-import src.com.example.model.*;
+    package src.com.example;
+    import src.com.example.model.*;
+    import java.util.ArrayList;
+    import java.util.List;
+    import src.com.example.ui.ConsoleInterface;
 
-import java.util.ArrayList;
-import java.util.List;
-import src.com.example.ui.ConsoleInterface;
-
-public class Main {
+    public class Main {
     public static void main(String[] args) {
         List<Patient> patients = new ArrayList<>();
         src.com.example.manager.CsvFileManager csvFileManager = new src.com.example.manager.CsvFileManager();
@@ -29,7 +28,6 @@ public class Main {
                 mealManager,
                 patientView,
                 dietitianView,
-
                 dietPlanView,
                 mealView
         );

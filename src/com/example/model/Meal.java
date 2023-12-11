@@ -67,4 +67,8 @@ public class Meal implements Serializable {
                 ", timeOfDay='" + timeOfDay + '\'' +
                 '}';
     }
+
+    public static Meal fromCsvString(String line) {
+        return null;
+    }
 }

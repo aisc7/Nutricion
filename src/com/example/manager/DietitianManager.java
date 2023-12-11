@@ -13,16 +13,12 @@ public class DietitianManager {
 
     public void registerDietitian(Dietitian dietitian) {
         dietitians.add(dietitian);
-        // Implement logic to save to CSV file...
-        saveDietitiansToFile();
 
     }
     public void updateDietitian(Dietitian dietitian) {
         int index = dietitian.getDietitianId();
         if (index != -1) {
             dietitians.set(index, dietitian);
-            // Update CSV file...
-            saveDietitiansToFile();
         } else {
             throw new IllegalArgumentException("Dietitian not found with ID: " + dietitian.getDietitianId());
         }
@@ -32,8 +28,6 @@ public class DietitianManager {
         int index = dietitianId;
         if (index != -1) {
             dietitians.remove(index);
-            // Update CSV file...
-            saveDietitiansToFile();
         } else {
             throw new IllegalArgumentException("Dietitian not found with ID: " + dietitianId);
         }
@@ -46,12 +40,5 @@ public class DietitianManager {
             }
         }
         return -1;
-    }
-    private void saveDietitiansToFile() {
-        try {
-            csvFileManager.saveDietitians(dietitians);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }

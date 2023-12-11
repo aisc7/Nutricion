@@ -67,4 +67,12 @@ public class Patient implements Serializable {
                 ", preexistingConditions='" + preexistingConditions + '\'' +
                 '}';
     }
+
+    public char[] toCsvString() {
+        return null;
+    }
+
+    public static Patient fromCsvString(String line) {
+        return null;
+    }
 }

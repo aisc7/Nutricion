@@ -1,88 +1,120 @@
-package src.com.example.manager;
-import src.com.example.model.*;
-import java.io.*;
+    package src.com.example.manager;
+    import src.com.example.model.*;
+   import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CsvFileManager {
-    private static final String PATIENTS_CSV = "patients.csv";
-    private static final String DIETITIANS_CSV = "dietitians.csv";
-    private static final String DIET_PLANS_CSV = "diet_plans.csv";
-    private static final String MEALS_CSV = "meals.csv";
-    
 
-    public void savePatients(List<Patient> patients) {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(PATIENTS_CSV))) {
-            oos.writeObject(patients);
+    private String dietitianCsvFileName;
+    private String mealCsvFileName;
+    private String dietPlanCsvFileName;
+    private String patientCsvFileName;
+
+    public CsvFileManager(String dietitianCsvFileName, String mealCsvFileName,
+                          String dietPlanCsvFileName, String patientCsvFileName) {
+        this.dietitianCsvFileName = dietitianCsvFileName;
+        this.mealCsvFileName = mealCsvFileName;
+        this.dietPlanCsvFileName = dietPlanCsvFileName;
+        this.patientCsvFileName = patientCsvFileName;
+    }
+
+    public CsvFileManager() {
+    }
+
+    public void writeDietitians(List<Dietitian> dietitians) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(dietitianCsvFileName))) {
+            for (Dietitian dietitian : dietitians) {
+                writer.println(dietitian.toCsvString());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public List<Dietitian> readDietitians() {
+        List<Dietitian> dietitians = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(dietitianCsvFileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                Dietitian dietitian = Dietitian.fromCsvString(line);
+                dietitians.add(dietitian);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return dietitians;
+    }
+
+    public void writeMeals(List<Meal> meals) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(mealCsvFileName))) {
+            for (Meal meal : meals) {
+                writer.println(meal.toCsvString());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public List<Meal> readMeals() {
+        List<Meal> meals = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(mealCsvFileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                Meal meal = Meal.fromCsvString(line);
+                meals.add(meal);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return meals;
+    }
+
+    public void writeDietPlans(List<DietPlan> dietPlans) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(dietPlanCsvFileName))) {
+            for (DietPlan dietPlan : dietPlans) {
+                writer.println(dietPlan.toCsvString());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public List<DietPlan> readDietPlans() {
+        List<DietPlan> dietPlans = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(dietPlanCsvFileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                DietPlan dietPlan = DietPlan.fromCsvString(line);
+                dietPlans.add(dietPlan);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return dietPlans;
+    }
+
+    public void writePatients(List<Patient> patients) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(patientCsvFileName))) {
+            for (Patient patient : patients) {
+                writer.println(patient.toCsvString());
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public List<Patient> readPatients() {
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(PATIENTS_CSV))) {
-            @SuppressWarnings("unchecked")
-            List<Patient> patients = (List<Patient>) ois.readObject();
-            return patients;
-                    } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    // ... (similar methods for , diet plans, and meals)
-    public void saveDietitians(List<Dietitian> dietitians){
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(DIETITIANS_CSV))) {
-            oos.writeObject(dietitians);
+        List<Patient> patients = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(patientCsvFileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                Patient patient = Patient.fromCsvString(line);
+                patients.add(patient);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return patients;
     }
-     public List<Dietitian> readDietitians() {
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(PATIENTS_CSV))) {
-            @SuppressWarnings("unchecked")
-            List<Dietitian> dietitians = (List<Dietitian>) ois.readObject();
-            return dietitians;
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-    public void saveMeals(List<Meal> meals) {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(MEALS_CSV))) {
-            oos.writeObject(meals);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    
-    public void saveDietPlans(List<DietPlan> dietPlans) {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(DIET_PLANS_CSV))) {
-            oos.writeObject(dietPlans);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    public List<Meal> readMeals() {
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(MEALS_CSV))) {
-            @SuppressWarnings("unchecked")
-            List<Meal> meals = (List<Meal>) ois.readObject();
-            return meals;
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-    
-    public List<DietPlan> readDietPlans() {
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(DIET_PLANS_CSV))) {
-            @SuppressWarnings("unchecked")
-            List<DietPlan> dietPlans = (List<DietPlan>) ois.readObject();
-            return dietPlans;
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-    
-
 }

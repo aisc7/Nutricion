@@ -66,4 +66,12 @@ public class DietPlan implements Serializable {
     public int getDietitianId() {
         return dietitianID;
     }
+
+    public char[] toCsvString() {
+        return null;
+    }
+
+    public static DietPlan fromCsvString(String line) {
+        return null;
+    }
 }

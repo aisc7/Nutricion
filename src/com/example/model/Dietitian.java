@@ -50,4 +50,8 @@ package src.com.example.model;
     public String toCsvString() {
         return dietitianId + "," + name + "," + specialty + "," + preexistingconditions;
     }
+
+    public static Dietitian fromCsvString(String line) {
+        return null;
+    }
    }
