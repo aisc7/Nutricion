@@ -1,5 +1,4 @@
 package src.com.example.manager;
-import src.com.example.*;
 import java.util.List;
 import java.util.Iterator;
 import src.com.example.model.*;
@@ -7,6 +6,7 @@ import src.com.example.model.*;
 public class MealManager {
     private List<Meal> meals;
     private static final String MEALS_CSV = "meals.csv";
+    private CsvFileManager csvFileManager;
 
     public MealManager(List<Meal> meals) {
         this.meals = meals;
@@ -14,16 +14,24 @@ public class MealManager {
 
     public void createMeal(Meal meal) {
         meals.add(meal);
-        updateCSV();
+        saveMealsToFile();
     }
 
     public void adjustMeal(Meal meal) {
         int index = findMealIndex(meal.getName());
         if (index != -1) {
             meals.set(index, meal);
-            updateCSV();
+            saveMealsToFile();
         } else {
             throw new IllegalArgumentException("Meal not found with name: " + meal.getName());
+        }
+    }
+
+    private void saveMealsToFile() {
+        try {
+            csvFileManager.saveMeals(meals);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -31,7 +39,7 @@ public class MealManager {
         int index = findMealIndex(updatedMeal.getName());
         if (index != -1) {
             meals.set(index, updatedMeal);
-            updateCSV();
+            
         } else {
             throw new IllegalArgumentException("Meal not found with name: " + updatedMeal.getName());
         }
@@ -48,12 +56,6 @@ public class MealManager {
         throw new IllegalArgumentException("Meal not found with ID: " + mealId);
         }
 
-    private void updateCSV() {
-        // Implement logic to update the CSV file with the current list of meals
-        // This may involve writing the entire list to the CSV file or updating specific entries
-        // Example: CSVWriter.writeMealsToCSV(MEALS_CSV, meals);
-    }
-
     private int findMealIndex(String mealName) {
         for (int i = 0; i < meals.size(); i++) {
             if (meals.get(i).getName().equals(mealName)) {
@@ -67,5 +69,6 @@ public class MealManager {
     }
 
     public void registerMeal(Meal meal) {
+        meals.add(meal);
     }
 }

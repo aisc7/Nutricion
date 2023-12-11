@@ -20,9 +20,19 @@ public class DietPlanManager {
         if (index != -1) {
             dietPlans.set(index, dietPlan);
             // Update CSV file...
+            saveDietPlansToFile();
         } else {
             throw new IllegalArgumentException("Diet plan not found with ID: " + dietPlan.getPlanId());
         }
+    }
+
+    private void saveDietPlansToFile() {
+        try {
+            csvFileManager.saveDietPlans(dietPlans);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void registerDietPlan(DietPlan dietPlan) {

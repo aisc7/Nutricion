@@ -29,7 +29,7 @@ public class CsvFileManager {
         }
     }
 
-    // ... (métodos similares para dietitians, diet plans, and meals)
+    // ... (similar methods for , diet plans, and meals)
     public void saveDietitians(List<Dietitian> dietitians){
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(DIETITIANS_CSV))) {
             oos.writeObject(dietitians);
@@ -47,4 +47,42 @@ public class CsvFileManager {
             return null;
         }
     }
+    public void saveMeals(List<Meal> meals) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(MEALS_CSV))) {
+            oos.writeObject(meals);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void saveDietPlans(List<DietPlan> dietPlans) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(DIET_PLANS_CSV))) {
+            oos.writeObject(dietPlans);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public List<Meal> readMeals() {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(MEALS_CSV))) {
+            @SuppressWarnings("unchecked")
+            List<Meal> meals = (List<Meal>) ois.readObject();
+            return meals;
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
+    public List<DietPlan> readDietPlans() {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(DIET_PLANS_CSV))) {
+            @SuppressWarnings("unchecked")
+            List<DietPlan> dietPlans = (List<DietPlan>) ois.readObject();
+            return dietPlans;
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
+
 }
