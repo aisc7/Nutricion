@@ -1,5 +1,6 @@
-import java.util.Iterator;
+package src.com.example.manager;
 import java.util.List;
+import src.com.example.model.*;
 
 public class DietPlanManager {
     private List<DietPlan> dietPlans;

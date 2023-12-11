@@ -1,5 +1,8 @@
+package src.com.example.manager;
+import src.com.example.*;
 import java.util.List;
 import java.util.Iterator;
+import src.com.example.model.*;
 
 public class MealManager {
     private List<Meal> meals;
@@ -61,5 +64,8 @@ public class MealManager {
     }
     public List<Meal> getAllMeals() {
         return meals;
+    }
+
+    public void registerMeal(Meal meal) {
     }
 }

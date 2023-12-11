@@ -1,5 +1,6 @@
+package src.com.example.manager;
 import java.util.List;
-
+import src.com.example.model.*;
 public class PatientManager {
     private List<Patient> patients;
     private CsvFileManager csvFileManager;

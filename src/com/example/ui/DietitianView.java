@@ -1,7 +1,17 @@
 package src.com.example.ui;
+import src.com.example.model.*;
+
+import src.com.example.manager.DietitianManager;
+import src.com.example.model.DietPlan;
+import src.com.example.model.Dietitian;
 import javax.swing.JOptionPane;
 
 public class DietitianView {
+    
+    public DietitianManager dietitianManager;
+    public DietitianView(DietitianManager dietitianManager) {
+        this.dietitianManager = dietitianManager;
+    }
 
         public void displayDietitianDetails(Dietitian dietitian) {
             System.out.println("Dietitian Details:");

@@ -1,8 +1,17 @@
 package src.com.example.ui;
+import src.com.example.model.*;
+
+import src.com.example.manager.DietPlanManager;
+
+import src.com.example.manager.DietPlanManager;
 import javax.swing.JOptionPane;
 
 public class DietPlanView {
-
+    
+    public DietPlanManager dietPlanManager;
+    public DietPlanView(DietPlanManager dietPlanManager) {
+        this.dietPlanManager = dietPlanManager;
+    }
     public String getDietPlanIdInput() {
         return getInput("Enter the diet plan ID");
     }

@@ -1,3 +1,5 @@
+package src.com.example.manager;
+import src.com.example.model.*;
 import java.lang.IllegalArgumentException;
 import java.util.List;
 

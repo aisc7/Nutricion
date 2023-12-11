@@ -1,9 +1,14 @@
 package src.com.example.ui;
+import src.com.example.manager.PatientManager;
 import src.com.example.model.Patient;
 import javax.swing.JOptionPane;
 
-
 public class PatientView {
+
+    public PatientManager patientManager;
+    public PatientView(PatientManager patientManager) {
+        this.patientManager = patientManager;}
+
     public void printPatientDetails(Patient patient) {
         String message = "PATIENT DETAILS\n\n";
         message += "Patient ID: " + patient.getPatientId() + "\n";

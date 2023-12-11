@@ -1,9 +1,9 @@
 package src.com.example;
 import src.com.example.model.*;
-import src.com.example.manager.*;
-import src.com.example.ui.*;
+
 import java.util.ArrayList;
 import java.util.List;
+import src.com.example.ui.ConsoleInterface;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,8 +22,17 @@ public class Main {
         src.com.example.ui.DietPlanView dietPlanView = new src.com.example.ui.DietPlanView(dietPlanManager);
         src.com.example.ui.MealView mealView = new src.com.example.ui.MealView(mealManager);
 
-        ConsoleInterface consoleInterface = new ConsoleInterface(  patientManager, dietitianManager, dietPlanManager, mealManager,
-            patientView, dietitianView, dietPlanView, mealView );
+            ConsoleInterface consoleInterface = new ConsoleInterface(
+                patientManager,
+                dietitianManager,
+                dietPlanManager,
+                mealManager,
+                patientView,
+                dietitianView,
+
+                dietPlanView,
+                mealView
+        );
 
         consoleInterface.startConsole();
     }

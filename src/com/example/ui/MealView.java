@@ -1,18 +1,20 @@
 package src.com.example.ui;
+import src.com.example.manager.MealManager;
+import src.com.example.model.*;
 import javax.swing.*;
 
 public class MealView {
 
-    private JTextField mealIdField;
-    private JTextField patientIdField;
-    private JTextField nameField;
-    private JTextField macronutrientsField;
-    private JTextField caloriesField;
-    private JTextField timeOfDayField;
-    private MealManager mealManager;  
+    public MealManager mealManager;
 
-    public MealView(MealManager mealManager) {
-        this.mealManager = mealManager;
+        public MealView(MealManager MealManager) {
+        JTextField mealIdField;
+        JTextField patientIdField;
+        JTextField nameField;
+        JTextField macronutrientsField;
+        JTextField caloriesField;
+        JTextField timeOfDayField;
+        MealManager mealManager;  
 
         mealIdField = new JTextField(10);
         patientIdField = new JTextField(10);
@@ -21,7 +23,7 @@ public class MealView {
         caloriesField = new JTextField(10);
         timeOfDayField = new JTextField(10);
 
-    
+        
         int option = JOptionPane.showConfirmDialog(null, createPanel(), "Meal Registration", JOptionPane.OK_CANCEL_OPTION);
 
         if (option == JOptionPane.OK_OPTION) {
@@ -29,8 +31,22 @@ public class MealView {
         }
     }
 
+    private JTextField mealIdField;
+    private JTextField patientIdField;
+    private JTextField nameField;
+    private JTextField macronutrientsField;
+    private JTextField caloriesField;
+    private JTextField timeOfDayField;
+
     private JPanel createPanel() {
         JPanel panel = new JPanel();
+
+        mealIdField = new JTextField(10);
+        patientIdField = new JTextField(10);
+        nameField = new JTextField(10);
+        macronutrientsField = new JTextField(10);
+        caloriesField = new JTextField(10);
+        timeOfDayField = new JTextField(10);
 
         panel.add(new JLabel("Meal ID:"));
         panel.add(mealIdField);
@@ -83,7 +99,7 @@ public class MealView {
         }
     
 
-    private void showMessage(String message) {
+    void showMessage(String message) {
         JOptionPane.showMessageDialog(null, message);
     }
 

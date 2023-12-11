@@ -17,6 +17,9 @@ public class Meal implements Serializable {
         this.timeOfDay = timeOfDay;
     }
     
+    public Meal(int int1, String name2, String description, int int2, int int3, int int4, int int5) {
+    }
+
     // Getters and setters...
     public String getName() {
         return name;
