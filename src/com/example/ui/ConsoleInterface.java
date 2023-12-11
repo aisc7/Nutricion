@@ -229,53 +229,54 @@
         Patientview.showMessage("user registered successfully");
     }
     public void updatePatientView() {
-        String id = Patientview.getInput("introduce el id del paciente");
-        String name = Patientview.getInput("introduce el nombre del paciente");
-        String age = Patientview.getInput("introduce la edad");
-        String weight = Patientview.getInput("introduce el peso");
-        String height = Patientview.getInput("introduce la altura");
-        String preexistingConditions = Patientview.getInput("introduce las condiciones preexistentes");
+        String id = Patientview.getInput("enter paciente id");
+        String name = Patientview.getInput("enter paciente name");
+        String age = Patientview.getInput("enter age");
+        String weight = Patientview.getInput("enter weight");
+        String height = Patientview.getInput("enter height");
+        String preexistingConditions = Patientview.getInput("enter preexisting conditions");
         patientManager.updatePatient(new Patient(Integer.parseInt(id), name, Integer.parseInt(age),
                 Double.parseDouble(weight), Double.parseDouble(height), preexistingConditions));
-        Patientview.showMessage("usuario actualizado exitosamente");
+        Patientview.showMessage("user updated successfully");
     }
 
     public void findPatientIndexView() {
-        String id = Patientview.getInput("introduce el id del paciente");
+        String id = Patientview.getInput("enter paciente id");
         patientManager.findPatientIndex(Integer.parseInt(id));
-        Patientview.showMessage("usuario encontrado exitosamente");
+        Patientview.showMessage("user found successfully");
     }
 
     public void deletePatientView() {
-        String id = Patientview.getInput("introduce el id del paciente");
+        String id = Patientview.getInput("enter paciente id");
         patientManager.deletePatient(Integer.parseInt(id));
-        Patientview.showMessage("usuario eliminado exitosamente");
+        Patientview.showMessage("user deleted successfully");
     }
     public void registerDietitianView() {
-        String id = Dietitianview.getInput("introduce el id del nutricionista");
-        String name = Dietitianview.getInput("introduce el nombre del nutricionista");
-        String specialty = Dietitianview.getInput("introduce la especialidad");
-        String preexistingConditions = Dietitianview.getInput("introduce las condiciones preexistentes");
+        String id = Dietitianview.getInput("enter dietitian id");
+        String name = Dietitianview.getInput("enter dietitian name");
+        String specialty = Dietitianview.getInput("enter specialty");
+
+        String preexistingConditions = Dietitianview.getInput("enter preexisting conditions");
         dietitianManager.registerDietitian(new Dietitian(Integer.parseInt(id), name, specialty, preexistingConditions));
                
-        Dietitianview.showMessage("Nutricionista creado exitosamente");
+        Dietitianview.showMessage("Dietitian registered successfully");
     }
     public void specialtyDietitianView() {
-        String id = Dietitianview.getInput("introduce el id del nutricionista");
-        String name = Dietitianview.getInput("introduce el nombre del nutricionista");
-        String specialty = Dietitianview.getInput("introduce la especialidad");
-        String preexistingConditions = Dietitianview.getInput("introduce las condiciones preexistentes");
+        String id = Dietitianview.getInput("enter dietitian id");
+        String name = Dietitianview.getInput("enter dietitian name");
+        String specialty = Dietitianview.getInput("enter specialty");
+        String preexistingConditions = Dietitianview.getInput("enter preexisting conditions");
         dietitianManager.updateDietitian(new Dietitian(Integer.parseInt(id), name, specialty, preexistingConditions));
-        Dietitianview.showMessage("Nutricionista actualizado exitosamente");
+        Dietitianview.showMessage("Dietitian updated successfully");
     }
     public void findDietitianIndexView() {
-        String id = Dietitianview.getInput("introduce el id del nutricionista");
+        String id = Dietitianview.getInput("enter dietitian id");
         dietitianManager.findDietitianIndex(Integer.parseInt(id));
-        Dietitianview.showMessage("Nutricionista encontrado exitosamente");
+        Dietitianview.showMessage("Dietitian found successfully");
     }
     public void deleteDietitianView() {
-        String id = Dietitianview.getInput("introduce el id del nutricionista");
+        String id = Dietitianview.getInput("enter dietitian id");
         dietitianManager.deleteDietitian(Integer.parseInt(id));
-        Dietitianview.showMessage("Nutricionista eliminado exitosamente");
+        Dietitianview.showMessage("Dietitian deleted successfully");
     }
 }
